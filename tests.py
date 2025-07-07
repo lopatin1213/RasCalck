@@ -450,7 +450,7 @@ def factorial_scientific(n):
         raise ValueError("Факториал определен только для неотрицательных целых чисел")
 
     # Устанавливаем высокую точность для работы с большими числами
-    getcontext().prec = 100  # Можно увеличить точность при необходимости
+    getcontext().prec = 1000  # Можно увеличить точность при необходимости
 
     # Рассчитываем факториал
     fact = Decimal(1)
@@ -458,7 +458,7 @@ def factorial_scientific(n):
         fact *= Decimal(i)
 
     # Представляем в научной форме
-    scientific_representation = "{:.5E}".format(fact.normalize())
+    scientific_representation = "{:.6E}".format(fact.normalize())
 
     return scientific_representation
 def plot_linear_equation(a, b, c):
@@ -1022,6 +1022,7 @@ settings_icon = ImageTk.PhotoImage(scaled_img)
 
 settings_button = ttk.Button(root, image=settings_icon, command=settings_popup)
 settings_button.place(x=955, y=0)
+
 label_basic_calc_text = ttk.Label(root, text="Введите числовое выражение (2+2):")
 label_basic_calc_text.place(x=0, y=0)
 help_button = ttk.Button(root, text='справка', command= lambda: show_tutorial("Помощь",
